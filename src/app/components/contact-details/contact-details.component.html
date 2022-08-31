@@ -1,0 +1,25 @@
+<img src={{currentContact.picture.large}} alt="">
+
+
+<ng-container *ngTemplateOutlet="Section; context: nameSectionContext"></ng-container>
+<ng-container *ngTemplateOutlet="Section; context: contactSectionContext"></ng-container>
+<ng-container *ngTemplateOutlet="Section; context: addressSectionContext"></ng-container>
+
+
+<ng-template #Section let-title="title" let-fields2d="fields2d" class="details-section">
+  <div class="details-section">
+    <h3>{{title}}</h3>
+    <div class="details-section-row" *ngFor="let row of fields2d">
+      <ng-container *ngFor="let fieldContext of row">
+        <ng-container *ngTemplateOutlet="DetailsCard; context: fieldContext"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #DetailsCard let-label="label" let-value="value">
+  <div class="details-section-field">
+    <h4>{{label}}</h4>
+    <div>{{value}}</div>
+  </div>
+</ng-template>

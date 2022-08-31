@@ -1,0 +1,14 @@
+<!-- <input type="button" value="Print Data" (click)="printData()"> -->
+<!-- <div>{{randomUserData$ | async | json}}</div> -->
+
+
+<input [formControl]="searchFormControl" type="text" name="search" id="search">
+
+<!-- contact row -->
+<ol class="contact-list">
+  <li *ngFor="let contact of contactList$ | async" (click)="selectContactRow(contact)">
+    <img src={{contact.picture.thumbnail}} alt="">
+    <!-- <img src={{contact.picture.medium}} alt=""> -->
+    <div class="contact-list-row-name">{{contact.name.first}} {{contact.name.last}}</div>
+  </li>
+</ol>
