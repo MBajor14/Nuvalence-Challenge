@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { RandomUser } from 'src/app/models/randomUserModel';
-import { AddressBookService } from 'src/app/services/address-book.service';
+import { RandomUser } from 'src/app/modules/address-book/models/randomUserModel';
+import { AddressBookService } from '../../services/address-book.service';
 
 interface FieldContext {
   label: string,

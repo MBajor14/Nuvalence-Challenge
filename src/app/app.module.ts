@@ -4,21 +4,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddressBookComponent } from './components/address-book/address-book.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
+import { AddressBookModule } from './modules/address-book/address-book.module';
+import { HeaderComponent } from './core/components/header/header.component';
+import { FooterComponent } from './core/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddressBookComponent,
-    ContactDetailsComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    AppRoutingModule,
+    AddressBookModule
   ],
   providers: [],
   bootstrap: [AppComponent]

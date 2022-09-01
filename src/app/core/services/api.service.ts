@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RandomUser } from '../models/randomUserModel';
+import { RandomUser } from '../../modules/address-book/models/randomUserModel';
 
 @Injectable({
   providedIn: 'root'

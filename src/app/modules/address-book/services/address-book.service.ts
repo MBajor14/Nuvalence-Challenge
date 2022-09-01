@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ApiService } from 'src/app/core/services/api.service';
 import { RandomUser } from '../models/randomUserModel';
-import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'

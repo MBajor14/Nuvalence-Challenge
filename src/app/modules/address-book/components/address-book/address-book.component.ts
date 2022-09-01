@@ -3,8 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
 import { debounceTime, switchMap, tap } from 'rxjs/operators';
-import { RandomUser } from 'src/app/models/randomUserModel';
-import { AddressBookService } from 'src/app/services/address-book.service';
+import { RandomUser } from 'src/app/modules/address-book/models/randomUserModel';
+import { AddressBookService } from '../../services/address-book.service';
 
 @Component({
   selector: 'app-address-book',
