@@ -12,8 +12,10 @@ import { AddressBookService } from '../../services/address-book.service';
   styleUrls: ['./address-book.component.scss']
 })
 export class AddressBookComponent implements OnInit, OnDestroy {
+  protected currentPage: number;
+
   protected contactList$ = new BehaviorSubject<RandomUser[] | any>([]);
-  protected searchFormControl = this.formBuilder.control('');
+  protected pageNumber = this.formBuilder.control('');
   private subs = new Subscription();
 
   constructor(
@@ -52,7 +54,7 @@ export class AddressBookComponent implements OnInit, OnDestroy {
 
   private loadFormControlListeners(): void {
     this.subs.add(
-      this.searchFormControl.valueChanges
+      this.pageNumber.valueChanges
         .pipe(
           debounceTime(500),
           tap(console.log)
@@ -66,7 +68,7 @@ export class AddressBookComponent implements OnInit, OnDestroy {
     this.navigateToContactDetails(contact);
   }
 
-  protected navigateToContactDetails(contact: RandomUser): void {
+  private navigateToContactDetails(contact: RandomUser): void {
     this.router.navigateByUrl('/contact-details', { state: { contact } })
   }
 }

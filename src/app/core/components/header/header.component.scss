@@ -8,12 +8,14 @@
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 nav > ol {
   display: flex;
   li {
     list-style: none;
+    margin-right: 1rem;
     a {
       color: $secondary-font-color;
       text-decoration: none;

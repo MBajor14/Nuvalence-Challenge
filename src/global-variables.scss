@@ -1,7 +1,18 @@
 
 
-$primary-bg-color: rgb(96, 140, 151);
+$primary-bg-color: rgb(74, 106, 114);
 $secondary-bg-color: rgb(95, 77, 136);
 
 $primary-font-color: black;
 $secondary-font-color: white;
+
+
+@mixin section {
+  width: 70%;
+  height: 100%;
+  margin: 2rem;
+  padding: 1rem;
+  border: 1px solid black inset;
+  border-radius: 8px;
+  box-shadow: 0 0 5px grey inset;
+}

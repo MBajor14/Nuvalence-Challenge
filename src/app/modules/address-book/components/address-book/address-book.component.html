@@ -1,14 +1,17 @@
-<!-- <input type="button" value="Print Data" (click)="printData()"> -->
-<!-- <div>{{randomUserData$ | async | json}}</div> -->
+<h2>Contacts</h2>
 
-
-<input [formControl]="searchFormControl" type="text" name="search" id="search">
-
-<!-- contact row -->
 <ol class="contact-list">
+  <!-- contact row -->
   <li *ngFor="let contact of contactList$ | async" (click)="selectContactRow(contact)">
     <img src={{contact.picture.thumbnail}} alt="">
-    <!-- <img src={{contact.picture.medium}} alt=""> -->
+    <div class="contact-list-row-line"></div>
     <div class="contact-list-row-name">{{contact.name.first}} {{contact.name.last}}</div>
   </li>
 </ol>
+
+<!-- pagination here -->
+<div class="pagination">
+  <input type="button" value="<<">
+  <input [formControl]="pageNumber" type="text" name="pageNumber" class="pageNumber">
+  <input type="button" value=">>">
+</div>

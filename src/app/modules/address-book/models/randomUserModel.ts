@@ -1,5 +1,5 @@
 export interface RandomUser {
-  gender?: "male" | "female",
+  gender?: Gender,
   name: Name,
   location?: Location,
   email?: string,
@@ -25,6 +25,8 @@ export interface RandomUser {
   },
   nat?: string
 }
+
+type Gender = "male" | "female";
 
 interface Name {
   title: string,
