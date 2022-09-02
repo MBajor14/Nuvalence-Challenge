@@ -77,9 +77,11 @@ export class ContactDetailsComponent implements OnInit {
     this.contactSectionContext = {
       title: 'Contact',
       fields2d: [
-        [this.buildFieldContext('Email', email)],
-        [this.buildFieldContext('Phone', phone)],
-        [this.buildFieldContext('Cell', cell)]
+        [
+          this.buildFieldContext('Email', email),
+          this.buildFieldContext('Phone', phone),
+          this.buildFieldContext('Cell', cell)
+        ]
       ]
     }
   }

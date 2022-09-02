@@ -1,17 +1,19 @@
-<h2>Contacts</h2>
+<div class="container">
+  <h2>Contacts</h2>
 
-<ol class="contact-list">
-  <!-- contact row -->
-  <li *ngFor="let contact of contactList$ | async" (click)="selectContactRow(contact)">
-    <img src={{contact.picture.thumbnail}} alt="">
-    <div class="contact-list-row-line"></div>
-    <div class="contact-list-row-name">{{contact.name.first}} {{contact.name.last}}</div>
-  </li>
-</ol>
+  <ol class="contact-list">
+    <!-- contact row -->
+    <li *ngFor="let contact of contactList$ | async" (click)="selectContactRow(contact)">
+      <img src={{contact.picture.thumbnail}} alt="">
+      <div class="contact-list-row-line"></div>
+      <div class="contact-list-row-name">{{contact.name.first}} {{contact.name.last}}</div>
+    </li>
+  </ol>
 
-<!-- pagination here -->
-<div class="pagination">
-  <input type="button" value="<<">
-  <input [formControl]="pageNumber" type="text" name="pageNumber" class="pageNumber">
-  <input type="button" value=">>">
+  <!-- pagination here -->
+  <!-- <div class="pagination">
+    <input type="button" value="<<">
+    <input [formControl]="pageNumber" type="text" name="pageNumber" class="pageNumber">
+    <input type="button" value=">>">
+  </div> -->
 </div>

@@ -1,10 +1,18 @@
+@import '../../../../../global-variables.scss';
+
+// large devices
+@media (min-width: 992px) {
+  :host{
+    min-width: 400px;
+  }
+}
+
 :host {
-  min-width: 400px;
+  // min-width: 400px;
   // width: 50%;
   height: 100%;
   margin: 2rem;
   padding: 1rem;
-  border: 1px solid black inset;
   border-radius: 8px;
   box-shadow: 0 0 5px grey inset;
 
@@ -53,7 +61,7 @@
     }
 
     .contact-list-row-line {
-      border-top: 1px solid rgb(219, 219, 219);
+      border-top: $border;
       flex: 1;
       margin-right: 0.5rem;
       margin-left: 0.5rem;

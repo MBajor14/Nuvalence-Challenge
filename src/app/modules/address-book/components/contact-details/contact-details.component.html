@@ -1,25 +1,47 @@
-<img src={{currentContact.picture.large}} alt="">
+<div class="row">
+  <div class="col-sm-3">
+    <img src={{currentContact.picture.large}} alt="contact-picture">
+  </div>
+  <div class="col-sm-9 row">
+    <ng-container *ngTemplateOutlet="Section; context: nameSectionContext"></ng-container>
+  </div>
+</div>
+
+<div class="row">
+  <ng-container *ngTemplateOutlet="Section; context: contactSectionContext"></ng-container>
+</div>
+
+<div class="row">
+  <ng-container *ngTemplateOutlet="Section; context: addressSectionContext"></ng-container>
+</div>
 
 
-<ng-container *ngTemplateOutlet="Section; context: nameSectionContext"></ng-container>
-<ng-container *ngTemplateOutlet="Section; context: contactSectionContext"></ng-container>
-<ng-container *ngTemplateOutlet="Section; context: addressSectionContext"></ng-container>
 
+
+
+
+
+
+
+<!-- sections templates -->
 
 <ng-template #Section let-title="title" let-fields2d="fields2d" class="details-section">
-  <div class="details-section">
-    <h3>{{title}}</h3>
-    <div class="details-section-row" *ngFor="let row of fields2d">
+  <div class="details-section col-12">
+    <div class="details-section-title">
+      <h3>{{title}}</h3>
+      <div class="ui-divider-line"></div>
+    </div>
+    <div class="row" *ngFor="let row of fields2d">
       <ng-container *ngFor="let fieldContext of row">
-        <ng-container *ngTemplateOutlet="DetailsCard; context: fieldContext"></ng-container>
+        <ng-container *ngTemplateOutlet="Field; context: fieldContext"></ng-container>
       </ng-container>
     </div>
   </div>
 </ng-template>
 
-<ng-template #DetailsCard let-label="label" let-value="value">
-  <div class="details-section-field">
-    <h4>{{label}}</h4>
-    <div>{{value}}</div>
+<ng-template #Field let-label="label" let-value="value">
+  <div class="col-sm-4">
+    <h5 class="field-label">{{label}}</h5>
+    <div class="field-value">{{value}}</div>
   </div>
 </ng-template>
