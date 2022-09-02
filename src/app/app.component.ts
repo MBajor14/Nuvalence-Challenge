@@ -9,12 +9,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class AppComponent implements OnInit, OnDestroy {
   constructor(){  }
 
-  ngOnInit(): void {
-    // loader?
+  ngOnInit(): void {  }
 
-  }
-
-  ngOnDestroy(): void {
-
-  }
+  ngOnDestroy(): void {  }
 }

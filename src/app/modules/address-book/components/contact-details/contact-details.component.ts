@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { RandomUser } from 'src/app/modules/address-book/models/randomUserModel';
 import { AddressBookService } from '../../services/address-book.service';
 
@@ -45,7 +44,7 @@ export class ContactDetailsComponent implements OnInit {
 
   private loadData(): void {
     this.addressBookService.currentContactDetails$
-      .pipe(tap(console.log))
+      .pipe(take(1))
       .subscribe(contactDetails => {
         this.currentContact = contactDetails;
       });

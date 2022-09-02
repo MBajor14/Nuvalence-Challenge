@@ -1,8 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { NavigationExtras, Router } from '@angular/router';
-import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
-import { debounceTime, switchMap, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { RandomUser } from 'src/app/modules/address-book/models/randomUserModel';
 import { AddressBookService } from '../../services/address-book.service';
 
@@ -12,11 +11,9 @@ import { AddressBookService } from '../../services/address-book.service';
   styleUrls: ['./address-book.component.scss']
 })
 export class AddressBookComponent implements OnInit, OnDestroy {
-  protected currentPage: number;
-
   protected contactList$ = new BehaviorSubject<RandomUser[] | any>([]);
-  protected pageNumber = this.formBuilder.control('');
   private subs = new Subscription();
+  // protected pageNumber = this.formBuilder.control('');
 
   constructor(
     private addressBookApiService: AddressBookService,
@@ -25,19 +22,8 @@ export class AddressBookComponent implements OnInit, OnDestroy {
     private router: Router
   ){  }
 
-  get contactListFiltered$(): Observable<any[]> {
-    return this.contactList$
-      .pipe(
-        tap(console.log),
-        switchMap(data => {
-          return data ? of([data[0]]) : of([])
-        })
-      );
-  }
-
   ngOnInit() {
     this.loadData();
-    this.loadFormControlListeners();
   }
 
   ngOnDestroy(): void {
@@ -45,25 +31,15 @@ export class AddressBookComponent implements OnInit, OnDestroy {
   }
 
   private loadData(): void {
-    this.addressBookApiService.getAddressContacts().subscribe((res) => {
-      // console.log(res);
-      this.contactList$.next(res.results);
-      this.cdRef.markForCheck();
-    }, console.error);
-  }
-
-  private loadFormControlListeners(): void {
     this.subs.add(
-      this.pageNumber.valueChanges
-        .pipe(
-          debounceTime(500),
-          tap(console.log)
-        ).subscribe()
-    );
+      this.addressBookApiService.getAddressContacts().subscribe((res) => {
+        this.contactList$.next(res.results);
+        this.cdRef.markForCheck();
+      }, console.error)
+    )
   }
 
   protected selectContactRow(contact: RandomUser): void {
-    console.log('Selected contact row', contact);
     this.addressBookApiService.currentContactDetails$.next(contact);
     this.navigateToContactDetails();
   }
@@ -71,4 +47,14 @@ export class AddressBookComponent implements OnInit, OnDestroy {
   private navigateToContactDetails(): void {
     this.router.navigateByUrl('contact-details');
   }
+
+    // beginnings of pagination implement
+  // private loadFormControlListeners(): void {
+  //   this.subs.add(
+  //     this.pageNumber.valueChanges
+  //       .pipe(
+  //         debounceTime(500)
+  //       ).subscribe()
+  //   );
+  // }
 }
