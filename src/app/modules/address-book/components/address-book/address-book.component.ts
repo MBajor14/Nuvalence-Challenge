@@ -65,10 +65,10 @@ export class AddressBookComponent implements OnInit, OnDestroy {
   protected selectContactRow(contact: RandomUser): void {
     console.log('Selected contact row', contact);
     this.addressBookApiService.currentContactDetails$.next(contact);
-    this.navigateToContactDetails(contact);
+    this.navigateToContactDetails();
   }
 
-  private navigateToContactDetails(contact: RandomUser): void {
-    this.router.navigateByUrl('/contact-details', { state: { contact } })
+  private navigateToContactDetails(): void {
+    this.router.navigateByUrl('contact-details');
   }
 }

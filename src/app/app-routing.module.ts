@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddressBookComponent } from './modules/address-book/components/address-book/address-book.component';
+import { ContactDetailsComponent } from './modules/address-book/components/contact-details/contact-details.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'address-book', pathMatch: 'full' },
-  { path: 'address-book', component: AddressBookComponent },
+  {
+    path: '',
+    component: AddressBookComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'contact-details',
+    component: ContactDetailsComponent
+  }
 ];
 
 @NgModule({

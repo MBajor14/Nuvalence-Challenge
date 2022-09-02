@@ -4,7 +4,7 @@ import { AddressBookComponent } from './components/address-book/address-book.com
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AddressBookRoutingModule } from './address-book-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { AddressBookRoutingModule } from './address-book-routing.module';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AddressBookRoutingModule
+    RouterModule
   ]
 })
 export class AddressBookModule { }

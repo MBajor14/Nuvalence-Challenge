@@ -4,9 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddressBookModule } from './modules/address-book/address-book.module';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
+import { AddressBookModule } from './modules/address-book/address-book.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { FooterComponent } from './core/components/footer/footer.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    AddressBookModule,
     AppRoutingModule,
-    AddressBookModule
   ],
   providers: [],
   bootstrap: [AppComponent]
